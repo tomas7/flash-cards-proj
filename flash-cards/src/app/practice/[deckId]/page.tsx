@@ -1,27 +1,8 @@
-import { ICard } from "@/Interfaces/interfaces";
-import Card from "./card";
+import DeckClient from "./deck";
+import { getCards } from "@/app/actions/getCards";
 
-export default async function Page({ params }: any) {
-  const { deckId } = await params;
-  const mockCard: ICard = {
-    mainLanguage: "car",
-    otherLanguage: "bil",
-    pronanciation: "[bil]",
-    isFavourite: false,
-  };
-  const mockCard1: ICard = {
-    mainLanguage: "car1",
-    otherLanguage: "bil1",
-    pronanciation: "[bil]",
-    isFavourite: false,
-  };
-  const cards: ICard[] = [
-     mockCard1,mockCard
-  ]
-  return (
-    <div>
-      deck number: {deckId}
-      {cards.map(card => <Card {...card}/>)}
-    </div>
-  );
+export default async function Page({ params, searchParams }: { params: { deckId: number}; searchParams:  { flashMode?: string } }) {
+  const cards = (await getCards(params.deckId, undefined)) as any[]; // server-side DB fetch
+
+  return <DeckClient cards={cards} flashMode={searchParams.flashMode === 'true' ? true : false} />;
 }

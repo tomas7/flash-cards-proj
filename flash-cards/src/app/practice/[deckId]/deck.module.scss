@@ -1,0 +1,56 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  .deckWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 3 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+.progressBarWrapper {
+    margin-top: 12.2rem;
+    height: 8px;
+    border-radius: 4px;
+    max-width: 300px; // desktop max
+    max-height: 6px;
+z-index: 999;
+    @media (min-width: 430px) {
+      width: 300px;
+      height: 6px;
+    }
+    .progressBar {
+      height: 100%;
+      background: linear-gradient(90deg, #00399535, #08307135);
+      transition: width 0.05s linear;
+    }
+  }
+
+  .navigation {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    z-index: 1000;
+    pointer-events: auto;
+
+    svg {
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
