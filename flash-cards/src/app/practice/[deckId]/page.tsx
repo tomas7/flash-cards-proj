@@ -1,8 +1,9 @@
+import { getCards } from "../../actions/getCards";
 import DeckClient from "./deck";
-import { getCards } from "@/app/actions/getCards";
 
-export default async function Page({ params, searchParams }: { params: { deckId: number}; searchParams:  { flashMode?: string } }) {
-  const cards = (await getCards(params.deckId, undefined)) as any[]; // server-side DB fetch
+export default async function Page({ params, searchParams }: { params: Promise<{ deckId: number}>; searchParams:  { flashMode?: string } }) {
+  const {deckId} = await params;
+  const cards = (await getCards(deckId)); 
 
   return <DeckClient cards={cards} flashMode={searchParams.flashMode === 'true' ? true : false} />;
 }

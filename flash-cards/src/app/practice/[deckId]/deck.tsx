@@ -1,16 +1,14 @@
 "use client";
 
-import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ArrowBigLeft, ArrowBigRight, BookAIcon } from "lucide-react";
 import Card from "./card";
 import styles from "./deck.module.scss";
-import { ICard } from "@/Interfaces/interfaces";
+import { ICard } from "@/src/Interfaces/interfaces";
 
 export default function Deck({ cards, flashMode }: { cards: ICard[]; flashMode: boolean }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-    const [progress, setProgress] = useState(100);
-  const params = useParams<{ deckId: string; group: string }>();
+  const [progress, setProgress] = useState(100);
 
   const handleNext = () => setCurrentIndex((prev) => (prev + 1) % cards.length);
   const handlePrevious = () => {
@@ -30,7 +28,7 @@ export default function Deck({ cards, flashMode }: { cards: ICard[]; flashMode: 
     }, stepDuration);
 
     const intervalId = setInterval(() => {
-      handleNext();
+      setCurrentIndex((prev) => (prev + 1) % cards.length);
       setProgress(100);
     }, duration);
 
@@ -40,7 +38,6 @@ export default function Deck({ cards, flashMode }: { cards: ICard[]; flashMode: 
     };
   }, [flashMode, cards.length, currentIndex]);
   
- 
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.deckWrapper}>

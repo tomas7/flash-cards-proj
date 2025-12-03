@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "./nav";
 import { PopupProvider } from "./context/PopupContext";
 import Popup from "./components/Popup";
+import UserButton from "./components/user-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Nav />
+        <UserButton/>
         <PopupProvider>
           {children}
           <Popup />

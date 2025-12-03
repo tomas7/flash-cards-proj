@@ -11,3 +11,7 @@ export interface IDeck {
   name: string;
   email: string;
 }
+
+export interface Err {
+  message: string
+}

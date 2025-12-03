@@ -1,6 +1,6 @@
 "use client";
-import { usePopup } from "@/app/context/PopupContext";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePopup } from "../context/PopupContext";
 
 export default function Popup() {
   const { message, type, visible, hidePopup } = usePopup();

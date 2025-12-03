@@ -1,5 +1,4 @@
 import React from 'react'
-import style from './Toggle.module.scss'
 function Toggle({setShortsMode, shortsMode} : {setShortsMode: () => void, shortsMode: boolean}) {
   return (
    <div className="mb-4 flex items-center gap-2">

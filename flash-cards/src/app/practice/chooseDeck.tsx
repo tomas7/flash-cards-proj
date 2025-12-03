@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import styles from "./chooseDeck.module.scss";
-import { IDeck } from "@/Interfaces/interfaces";
 import { useRouter } from "next/navigation";
 import Toggle from "../components/Toggle";
+import { IDeck } from "@/src/Interfaces/interfaces";
 
 interface ChooseDeckProps {
   decks: IDeck[];

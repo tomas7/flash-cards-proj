@@ -1,9 +1,17 @@
 import ChooseDeck from "./chooseDeck";
 import { getDecks } from "../actions/getDecks";
-import { IDeck } from "@/Interfaces/interfaces";
+import { IDeck } from "@/src/Interfaces/interfaces";
+import { auth } from "@/auth" // or from "next-auth" if you're using that
 
 export default async function Page() {
+  const session = await auth();
   const decks = (await getDecks("haverlatom7@gmail.com")) as IDeck[];
-
-  return <ChooseDeck decks={decks} />;
+  if (session) {
+    return <ChooseDeck decks={decks} />;
+  }
+   return (
+    <>
+      Not signed in
+    </>
+   )
 }

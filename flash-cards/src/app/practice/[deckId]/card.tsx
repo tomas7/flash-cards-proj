@@ -2,7 +2,7 @@
 
 import { Heart, Pencil } from "lucide-react";
 import styles from "./card.module.scss";
-import { ICard } from "@/Interfaces/interfaces";
+import { ICard } from "@/src/Interfaces/interfaces";
 
 export default function Card({
   mainLanguage,

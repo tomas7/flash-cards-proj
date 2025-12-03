@@ -5,7 +5,7 @@ import { neon } from "@neondatabase/serverless";
 
 const sql = neon(process.env.DATABASE_URL!);
 
-export async function getCards(deckId: number, group: string | undefined) {
+export async function getCards(deckId: number) {
   const result = await sql`
       SELECT * FROM "fc_cards"
       WHERE "deck_id" = ${deckId} 

@@ -1,7 +1,7 @@
 "use client";
-import createNewCard from "@/app/actions/createNewCard";
+import createNewCard from "../../actions/createNewCard";
+import { usePopup } from "../../context/PopupContext";
 import styles from "./page.module.scss";
-import { usePopup } from "@/app/context/PopupContext";
 
 enum PopUpType {
     success = "success", 
@@ -9,11 +9,13 @@ enum PopUpType {
     info = "info"
 }
 
-export default function CardForm() {
+export default function CardForm({ email }: { email: string }) {
  const { showPopup } = usePopup();
+
+
     async function handleSubmit(formData: FormData) {
 
-      const result = await createNewCard(formData);
+      const result = await createNewCard(email, formData);
       console.log(result)
       if (result?.success) {
         showPopup(result.message, PopUpType.success );
