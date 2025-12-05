@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Nav from "./nav";
 import { PopupProvider } from "./context/PopupContext";
 import Popup from "./components/Popup";
 import UserButton from "./components/user-button";
+import Nav from "./components/Nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +32,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Nav />
-        <UserButton/>
         <PopupProvider>
           {children}
           <Popup />

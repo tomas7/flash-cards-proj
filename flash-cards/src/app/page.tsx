@@ -1,5 +1,16 @@
-export default function Home() {
+import { auth } from "@/auth";
+import { NotAuthorized } from "./components/Not-authorized";
+import styles from "./page.module.scss"
+
+export default async function Home() {
+  const session = await auth();      
+  if (!session?.user) return <NotAuthorized/>;   
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20"></div>
+    <div className={styles.container}>
+      <h2>Welcome {session.user.email}</h2>
+
+      <h3>What would you like to learn today?</h3>
+      
+      </div>
   );
 }

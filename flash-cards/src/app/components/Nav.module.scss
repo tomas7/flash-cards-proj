@@ -1,0 +1,55 @@
+/* === Color Palette ===
+   Deep Navy: #0f1a24
+   Slate Gray: #2b3b4a
+   Soft Teal: #4ab9b3
+   Light Text: #e4f1f6
+   Accent Hover: #3ea49e
+*/
+
+.navbar {
+  width: 100%;
+  background-color: #0f1a24;
+  padding: 0.75rem 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LEFT NAV LINKS */
+.left {
+  display: flex;
+  gap: 1.25rem;
+}
+
+/* RIGHT SIDE MENU */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* LINK STYLES */
+.link,
+.linkActive {
+  font-size: 0.95rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  color: #e4f1f6;
+  text-decoration: none;
+  transition: background-color 0.25s, color 0.25s;
+
+
+}
+
+.linkActive {
+  background-color: #48aaf5;
+  color: #0f1a24;
+}

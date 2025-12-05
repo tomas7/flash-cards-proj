@@ -1,0 +1,18 @@
+.link {
+  color: #c3cfd9;
+  text-decoration: none;
+  padding: .5rem .9rem;
+  border-radius: 6px;
+  transition: 0.25s;
+
+  &:hover {
+    background: #2f3b46;
+    color: #fff;
+  }
+}
+
+.active {
+  background: #4aa5b9!important;
+  color: #0e1a22;
+  font-weight: 600;
+}

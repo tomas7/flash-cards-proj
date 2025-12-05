@@ -1,0 +1,32 @@
+/* Auth Buttons */
+.authBtnBase {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.25s, transform 0.15s;
+  color: white;
+/* Sign In */
+}
+
+.signIn {
+  background-color: white;
+  color: #0f1a24;
+
+  &:hover {
+    background-color: rgba(242, 242, 242, 0.774)
+  }
+
+/* Sign Out */
+.signOut {
+  background-color: #2b3b4a;
+  color: #e4f1f6;
+
+  &:hover {
+    background-color: #3a4d5d;
+  }
+}
+
+}

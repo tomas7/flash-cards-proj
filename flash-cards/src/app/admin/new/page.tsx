@@ -1,10 +1,10 @@
 import { auth } from "@/auth";
 import CardForm from "./createCardForm";
-import { SignIn } from "../../components/auth-components";
+import { NotAuthorized } from "../../components/Not-authorized";
 
 export default async function Page() {
   const session = await auth();      
-  if (!session?.user) return <SignIn />;   
+  if (!session?.user) return <NotAuthorized/>;   
   const email = session.user.email;
   return (
     <CardForm email={email}/>
